@@ -1,4 +1,4 @@
-# ozontel
+
 Checking Codecommit- ECRR
 Checking codepipeline
 check auto trigger
