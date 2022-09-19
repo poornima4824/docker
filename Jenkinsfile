@@ -54,9 +54,8 @@ agent any
                 script {
                     try {
                         sh "docker run -d -p 8082:8080 --rm --name sample ${REPOSITORY_URI}:${GIT_COMMIT}"
-                        sh "docker stop sample"
                         sh '''
-                           if [ "$( docker inspect -f '{{.State.Status}}' sample )" == "exited" ]; then exit 1 ; else true; fi '''
+                           if [ "$( docker inspect -f '{{.State.Status}}' sample )" == "running" ]; then exit 1 ; else true; fi '''
                     }
                     catch (e) {
                         echo 'Rolling Back to Previous Sucessfull Version'
