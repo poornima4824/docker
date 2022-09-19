@@ -52,7 +52,7 @@ agent any
         stage('Deploy') {
             steps {
                 script {
-                        sh "docker run -d -p 8082:8080 --rm --name sample ${REPOSITORY_URI}:${COMMIT}"
+                        sh "docker run -d -p 8082:8080 --rm --name sample ${REPOSITORY_URI}:${GIT_COMMIT}"
                         
                  
                    }
