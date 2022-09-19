@@ -54,8 +54,8 @@ agent any
                 script {
                     try {
                         sh "docker run -d -p 8082:8080 --rm --name sample ${REPOSITORY_URI}:${GIT_COMMIT}"
-                        sh '''
-                           if [ "$( docker ps | grep sample ")]; then exit 1 ; else true; fi '''
+                        sh " docker container inspect -f '{{.State.Status}}' sample " ] > status "
+                        sh '''if grep 'running' status; then exit 0; else true; fi '''
                     }
                     catch (e) {
                         echo 'Rolling Back to Previous Sucessfull Version'
