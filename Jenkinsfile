@@ -12,7 +12,7 @@ agent any
         stage('Code checkout') {
             steps {
                 script {
-                    checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-accesstoken', url: 'https://github.com/demo-organization-01/ozontel.git']]])
+                    checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-accesstoken', url: 'https://github.com/poornima4824/docker.git']]])
                 }
             }
         } 
